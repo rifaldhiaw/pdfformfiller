@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use mikehaertl\pdftk\Pdf;
 use App\Daftar_kp;
+use App\Dosen;
 use Carbon\Carbon;
 use Debugbar;
 
 class UserPendaftaranpkl extends Controller
 {
+	public function view()
+	{
+    	//ambil data dosen
+    	$dosens = Dosen::all();
+    	return view('form.pendaftaran-pkl')->with('dosens', $dosens);
+	}
+
     public function print()
     {
     	//ambil data dari input user
@@ -39,24 +46,34 @@ class UserPendaftaranpkl extends Controller
     	$daftar_kp->alamat_pkl = $alamat_pkl;
     	$daftar_kp->save();
 
-    	//inisialisasi pdf
-    	$pdf = new Pdf(storage_path('app\public\pdf_template\form_test.pdf'), [
-		    	'command' => 'pdftk.exe',
-		    	'useExec' => true,]);
-		
-		//isi data ke pdf
-		$pdf->fillForm(array(
-		        'nama'=>$nama,
-		        'npm' => $npm,
-		        'program_studi' => $program_studi,
-		    ))
-		    ->needAppearances()
-		    ->send('Form_KP/PKL.pdf', [
-		    	'command' => 'C:\Program Files\PDFtk Server\bin\pdftk.exe',
-		    	'useExec' => true,]);
+        $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(storage_path('app\public\form\form_test.docx'));
+        $pathSaveFile = storage_path('app\public\results\pengajuan-kp-'.$npm.'.docx');
 
-		debug($nama, $npm, $ps);
-    	debug($pdf);
-    	return view('form.pengajuan-pkl');
+        $templateProcessor->setValue('nama', $nama);
+        $templateProcessor->setValue('npm', $npm);
+        $templateProcessor->setValue('jurusan', $program_studi);
+        $templateProcessor->setValue('semester', $semester);
+        $templateProcessor->saveAs($pathSaveFile);
+
+  //   	//inisialisasi pdf
+  //   	$pdf = new Pdf(storage_path('app\public\pdf_template\form_test.pdf'), [
+		//     	'command' => 'pdftk.exe',
+		//     	'useExec' => true,]);
+		
+		// //isi data ke pdf
+		// $pdf->fillForm(array(
+		//         'nama'=>$nama,
+		//         'npm' => $npm,
+		//         'program_studi' => $program_studi,
+		//     ))
+		//     ->needAppearances()
+		//     ->send('Form_KP/PKL.pdf', [
+		//     	'command' => 'C:\Program Files\PDFtk Server\bin\pdftk.exe',
+		//     	'useExec' => true,]);
+
+		// debug($nama, $npm, $ps);
+  //   	debug($pdf);
+
+    	return response()->download($pathSaveFile)->deleteFileAfterSend(true);
     }
 }

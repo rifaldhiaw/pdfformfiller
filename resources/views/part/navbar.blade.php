@@ -7,38 +7,32 @@
                     <span class="navbar-toggler-bar bar2"></span>
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
-                <a class="navbar-brand" href=" {{ url('') }}" rel="tooltip" title=" " data-placement="bottom" target="_blank">
-                    Form Pelayanan
+                <a class="navbar-brand" href=" {{ url('') }}" rel="tooltip" title="Go to Home" data-placement="bottom">
+                    <strong>HOME</strong>
                 </a>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="{{ URL::asset('/img/blurred-image-1.jpg') }}">
                 <ul class="navbar-nav">
+					@if (!Auth::guest())
                     <li class="nav-item">
-                        <a class="nav-link" href="#pablo">
-                            <p>Link</p>
+                        <a class="nav-link" href="{{url('/admin')}}">
+                            <p><strong>ADMIN PAGE</strong></p>
+                        </a>
+                    </li>
+                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://ilkom.unila.ac.id">
+                            <p>Ilkom</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pablo">
-                            <p>Link</p>
+                        <a class="nav-link" href="http://fmipa.unila.ac.id">
+                            <p>FMIPA</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-                            <i class="fa fa-twitter"></i>
-                            <p class="hidden-lg-up">Twitter</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
-                            <i class="fa fa-facebook-square"></i>
-                            <p class="hidden-lg-up">Facebook</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-                            <i class="fa fa-instagram"></i>
-                            <p class="hidden-lg-up">Instagram</p>
+                        <a class="nav-link" href="http://unila.ac.id">
+                            <p>Unila</p>
                         </a>
                     </li>
                 </ul>
