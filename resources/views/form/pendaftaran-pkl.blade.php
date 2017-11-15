@@ -42,14 +42,12 @@
                             </div>
                         </div>
                         <div class="form-group  ">
-                            <label   for="dosen_pa">Dosen PA:</label>
-                            <div >
-                                <select class="form-control">
+                            <label for="dosen_pa_id">Dosen PA:</label>
+                                <select class="form-control" name="dosen_pa_id">
                                     @foreach ($dosens as $dosen)
-                                    <option>{{$dosen->nama}}</option>
+                                    <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                     @endforeach
                                 </select>
-                            </div>
                         </div>
                     </div>
                 </div>

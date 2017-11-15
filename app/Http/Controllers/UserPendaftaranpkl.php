@@ -19,15 +19,19 @@ class UserPendaftaranpkl extends Controller
 
     public function print()
     {
-    	//ambil data dari input user
     	$request 		= request();
+    	$id = $request->input('dosen_pa_id');
+
+    	$dosen_pa = Dosen::find($id);;
+
+    	//ambil data dari input user
     	$nama 			= $request->input('nama');
     	$npm 			= $request->input('npm');
     	$program_studi 	= $request->input('program_studi');
     	$semester 		= $request->input('semester');
     	$tahun_ajar		= $request->input('tahun_ajar');
-    	$dosen_pa		= $request->input('dosen_pa');
-    	$nip_pa			= $request->input('nip_pa');
+    	$dosen_pa		= $dosen_pa->nama;
+    	$nip_pa			=  '101010';
     	$tempat_pkl		= $request->input('tempat_pkl');
     	$alamat_pkl		= $request->input('alamat_pkl');
 
