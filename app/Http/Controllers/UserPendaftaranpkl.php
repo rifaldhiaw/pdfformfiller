@@ -51,7 +51,7 @@ class UserPendaftaranpkl extends Controller
     	$daftar_kp->save();
 
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(storage_path('app\public\form\form_test.docx'));
-        $pathSaveFile = storage_path('app\public\results\pengajuan-kp-'.$npm.'.docx');
+        $pathSaveFile = storage_path('app\public\form\pengajuan-kp-'.$npm.'.docx');
 
         $templateProcessor->setValue('nama', $nama);
         $templateProcessor->setValue('npm', $npm);
