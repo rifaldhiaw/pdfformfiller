@@ -88,6 +88,7 @@ table .btn-simple.btn-icon {
 
 table form {
     display: inline;
+    padding-right: 5px;
 }
 
 .card .form-horizontal .form-group {

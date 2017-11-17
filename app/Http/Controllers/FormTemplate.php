@@ -16,15 +16,15 @@ class FormTemplate extends Controller
     {
 
     	$daftar_hadir = asset('storage/form/daftar_hadir.docx');
-    	$pendaftaran_pkl = Storage::url('app\public\form\pendaftaran_pkl.docx');
-    	$pengajuan_tema = Storage::url('app\public\form\pengajuan_tema.docx');
-    	$pengambilan_data = Storage::url('app\public\form\pengambilan_data.docx');
-    	$pengisian_krs = Storage::url('app\public\form\pengisian_krs.docx');
-    	$perbaikan_nilai = Storage::url('app\public\form\perbaikan_nilai.docx');
-    	$seminar_kp = Storage::url('app\public\form\seminar_kp.docx');
-    	$seminar_ta = Storage::url('app\public\form\seminar_ta.docx');
-    	$seminar_usulhasil = Storage::url('app\public\form\seminar_usulhasil.docx');
-    	$ujian_skripsi = Storage::url('app\public\form\ujian_skripsi.docx');
+    	$pendaftaran_pkl = asset('storage/form/pendaftaran_pkl.docx');
+    	$pengajuan_tema = asset('storage/form/pengajuan_tema.docx');
+    	$pengambilan_data = asset('storage/form/pengambilan_data.docx');
+    	$pengisian_krs = asset('storage/form/pengisian_krs.docx');
+    	$perbaikan_nilai = asset('storage/form/perbaikan_nilai.docx');
+    	$seminar_kp = asset('storage/form/seminar_kp.docx');
+    	$seminar_ta = asset('storage/form/seminar_ta.docx');
+    	$seminar_usulhasil = asset('storage/form/seminar_usulhasil.docx');
+    	$ujian_skripsi = asset('storage/form/ujian_skripsi.docx');
 
     	return view('admin.ad-form')
     		->with('daftar_hadir', $daftar_hadir)

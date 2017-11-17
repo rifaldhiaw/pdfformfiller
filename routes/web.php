@@ -27,6 +27,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pendaftaran-pkl', 'UserPendaftaranpkl@view')->name('pendaftaran-pkl');
 Route::post('/pendaftaran-pkl', 'UserPendaftaranpkl@print');
 
+//link from print button (user)
+Route::get('/daftar-hadir-skripsi', 'UserDaftarHadirSkripsi@view')->name('daftar-hadir-skripsi');
+Route::post('/daftar-hadir-skripsi', 'UserDaftarHadirSkripsi@print');
+
+//link from print button (user)
+Route::get('/seminar-pkl', 'UserSeminarPKL@view');
+Route::post('/seminar-pkl', 'UserSeminarPKL@print');
+
 //link from admin
 Route::prefix('admin')->group(function () {
 	Route::get('', 'AdminController@index');

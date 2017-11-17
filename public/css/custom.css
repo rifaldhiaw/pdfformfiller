@@ -94,12 +94,7 @@ footer {
 label {
     display: inline-block;
     margin-bottom: .5rem;
-    font-weight: bold;
     font-size: 14px;
-}
-
-.form-group input{
-	font-weight: bold;
 }
 
 textarea.form-control {
@@ -503,6 +498,7 @@ textarea.form-control:focus, textarea.form-control:active {
     height: 40px;
     -webkit-box-shadow: none;
     box-shadow: none;
+    font-size: 14px;
 }
 
 .form-control:focus {

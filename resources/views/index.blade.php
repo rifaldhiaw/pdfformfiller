@@ -33,7 +33,10 @@
                                 <a href=" {{ route('pendaftaran-pkl') }} " style="text-decoration:none;">
                                     <div class="menu-list">Pendaftaran PKL</div>
                                 </a>
-                                <div class="menu-list">Seminar PKL</div>
+                                <a href=" {{ url('seminar-pkl') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Seminar PKL</div>
+                                </a>
+                                <div class="menu-list">Daftar Hadir Seminar PKL</div>
                             </div>
                         </div>
                     </div>
@@ -66,7 +69,9 @@
                             <div class="col-sm-9">
                                 <div class="menu-list">Seminar Usul</div>
                                 <div class="menu-list">Seminar Hasil</div>
-                                <div class="menu-list">Daftar Hadir Seminar</div>
+                                <a href=" {{ route('daftar-hadir-skripsi') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Daftar Hadir Seminar Skripsi</div>
+                                </a>
                             </div>
                         </div>   
                     </div>
