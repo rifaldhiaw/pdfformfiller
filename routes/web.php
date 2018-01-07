@@ -35,6 +35,46 @@ Route::post('/daftar-hadir-skripsi', 'UserDaftarHadirSkripsi@print');
 Route::get('/seminar-pkl', 'UserSeminarPKL@view');
 Route::post('/seminar-pkl', 'UserSeminarPKL@print');
 
+//link from print button (user)
+Route::get('/pengisian_krs', 'pengisian_krs@view'); 
+Route::post('/pengisian_krs', 'pengisian_krs@print');
+
+//link from print button (user)
+Route::get('/perbaikan_nilai', 'perbaikan_nilai@view');
+Route::post('/perbaikan_nilai', 'perbaikan_nilai@print');
+
+//link from print button (user)
+Route::get('/pengajuan_tema', 'pengajuan_tema@view');
+Route::post('/pengajuan_tema', 'pengajuan_tema@print');
+
+//link from print button (user)
+Route::get('/pengambilan_data', 'pengambilan_data@view');
+Route::post('/pengambilan_data', 'pengambilan_data@print');
+
+//link from print button (user)
+Route::get('/ujian_skripsi', 'ujian_skripsi@view');
+Route::post('/ujian_skripsi', 'ujian_skripsi@print');
+
+//link from print button (user)
+Route::get('/seminar_usulhasil', 'seminar_usulhasil@view');
+Route::post('/seminar_usulhasil', 'seminar_usulhasil@print');
+
+//link from print button (user)
+Route::get('/daftar_hadir_kp', 'daftar_hadir_kp@view');
+Route::post('/daftar_hadir_kp', 'daftar_hadir_kp@print');
+
+//link from print button (user)
+Route::get('/alih_program_dalam', 'alih_program_dalam@view');
+Route::post('/alih_program_dalam', 'alih_program_dalam@print');
+
+//link from print button (user)
+Route::get('/alih_program_luar', 'alih_program_luar@view');
+Route::post('/alih_program_luar', 'alih_program_luar@print');
+
+//link from print button (user)
+Route::get('/data_alumni', 'data_alumni@view');
+Route::post('/data_alumni', 'data_alumni@print');
+
 //link from admin
 Route::prefix('admin')->group(function () {
 	Route::get('', 'AdminController@index');

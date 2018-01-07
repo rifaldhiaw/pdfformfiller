@@ -15,8 +15,12 @@
                             </div>
                             <div class="col-sm-8 menu-lists">
                                 <br>
-                                <div class="menu-list">KRS Sementara</div>
-                                <div class="menu-list">Perbaikan Nilai</div>
+                                <a href=" {{ url('pengisian_krs') }} " style="text-decoration:none;">
+                                    <div class="menu-list">KRS Semsentara</div>
+                                </a>
+                                <a href=" {{ url('perbaikan_nilai') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Perbaikan Nilai</div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -36,7 +40,9 @@
                                 <a href=" {{ url('seminar-pkl') }} " style="text-decoration:none;">
                                     <div class="menu-list">Seminar PKL</div>
                                 </a>
-                                <div class="menu-list">Daftar Hadir Seminar PKL</div>
+                                <a href=" {{ url('daftar_hadir_kp') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Daftar Hadir Seminar PKL</div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -52,9 +58,15 @@
                                 </div>
                             </div>
                             <div class="col-sm-9">
-                                <div class="menu-list">Pengajuan Tema Penelitian</div>
-                                <div class="menu-list">Izin Pengambilan Data</div>
-                                <div class="menu-list">Ujian Skripsi</div>
+                                <a href=" {{ url('pengajuan_tema') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Pengajuan Tema Penelitian</div>
+                                </a>
+                                <a href=" {{ url('pengambilan_data') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Izin Pengambilan Data</div>
+                                </a>
+                                <a href=" {{ url('ujian_skripsi') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Ujian Skripsi</div>
+                                </a>
                             </div>
                         </div>   
                     </div>
@@ -67,8 +79,12 @@
                                 </div>
                             </div>
                             <div class="col-sm-9">
-                                <div class="menu-list">Seminar Usul</div>
-                                <div class="menu-list">Seminar Hasil</div>
+                                <a href=" {{ url('seminar_usulhasil') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Seminar Usul</div>
+                                </a>
+                                <a href=" {{ url('seminar_usulhasil') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Seminar Hasil</div>
+                                </a>
                                 <a href=" {{ route('daftar-hadir-skripsi') }} " style="text-decoration:none;">
                                     <div class="menu-list">Daftar Hadir Seminar Skripsi</div>
                                 </a>
@@ -84,9 +100,15 @@
                                 </div>
                             </div>
                             <div class="col-sm-9">
-                                <div class="menu-list">Alih Program dari Luar Unila</div>
-                                <div class="menu-list">Alih Program dari Dalam Unila</div>
-                                <div class="menu-list">Form Data Lulusan</div>
+                                <a href=" {{ url('alih_program_luar') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Alih Program dari Luar Unila</div>
+                                </a>
+                                <a href=" {{ url('alih_program_dalam') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Alih Program dari Dalam Unila</div>
+                                </a>
+                                <a href=" {{ url('data_alumni') }} " style="text-decoration:none;">
+                                    <div class="menu-list">Form Data Lulusan</div>
+                                </a>
                             </div>
                         </div>   
                     </div>
