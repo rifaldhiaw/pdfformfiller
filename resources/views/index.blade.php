@@ -85,7 +85,7 @@
                                 <a href=" {{ url('seminar_usulhasil') }} " style="text-decoration:none;">
                                     <div class="menu-list">Seminar Hasil</div>
                                 </a>
-                                <a href=" {{ route('daftar-hadir-skripsi') }} " style="text-decoration:none;">
+                                <a href=" {{ url('daftar-hadir-skripsi') }} " style="text-decoration:none;">
                                     <div class="menu-list">Daftar Hadir Seminar Skripsi</div>
                                 </a>
                             </div>
