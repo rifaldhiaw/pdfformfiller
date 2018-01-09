@@ -80,6 +80,12 @@
                             </div>
                         </div>
                         <div class="form-group  ">
+                            <label   for="tempat_pkl">Tempat PKL / KP:</label>
+                            <div >
+                                <textarea class="form-control" rows="2" name="tempat_pkl"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group  ">
                             <label for="dosen_pembimbing">Dosen Pembimbing:</label>
                             <select class="form-control" name="dosen_pembimbing">
                                 @foreach ($dosens as $dosen)

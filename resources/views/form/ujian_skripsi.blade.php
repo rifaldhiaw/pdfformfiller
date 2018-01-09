@@ -28,7 +28,7 @@
                             <label for="dosen_pa">Dosen PA:</label>
                             <select class="form-control" name="dosen_pa">
                                 @foreach ($dosens as $dosen)
-                                <option value="{{$dosen->nama}}">{{$dosen->nama}}</option>
+                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -111,17 +111,25 @@
                             </div>
                         </div>
                         <div class="form-group  ">
-                            <label for="penguji">Penguji:</label>
-                            <select class="form-control" name="penguji">
+                            <label for="dosen2">Dosen ke-2:</label>
+                            <select class="form-control" name="dosen2">
                                 @foreach ($dosens as $dosen)
-                                <option value="{{$dosen->nama}}">{{$dosen->nama}}</option>
+                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group  ">
-                            <label   for="tanggal_berkas ">Tanggal Berkas:</label>
+                            <label for="penguji">Penguji:</label>
+                            <select class="form-control" name="penguji">
+                                @foreach ($dosens as $dosen)
+                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group  ">
+                            <label   for="tanggal_berkas">Tanggal Berkas:</label>
                             <div>
-                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tanggal_berkas " id="tanggal_berkas " data-datepicker-color="">
+                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tanggal_berkas" id="tanggal_berkas" data-datepicker-color="">
                             </div>
                         </div>
                         

@@ -29,13 +29,13 @@
                             <label   for="program_studi">Program Studi:</label>
                             <div >
                                 <div class="radio">
-                                    <input type="radio" name="program_studi" id="radio1" value="S1 Ilmu Komputer">
+                                    <input type="radio" name="prodi" id="radio1" value="S1 Ilmu Komputer">
                                     <label for="radio1">
                                         S1 Ilmu Komputer
                                     </label>    
                                 </div>
                                 <div class="radio">
-                                    <input type="radio" name="program_studi" id="radio2" value="D3 Manajemen Informatika" checked="">
+                                    <input type="radio" name="prodi" id="radio2" value="D3 Manajemen Informatika" checked="">
                                     <label for="radio2">
                                         D3 Manajemen Informatika
                                     </label>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="form-group  ">
                             <label for="dosen_pembimbing">Dosen Pembimbing:</label>
-                            <select class="form-control" name="dosen_pembimbing">
+                            <select class="form-control" name="pembimbing">
                                 @foreach ($dosens as $dosen)
                                 <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                 @endforeach
@@ -81,23 +81,31 @@
                         <div class="form-group ">
                             <label   for="status_dosen2">Status Dosen ke-2:</label>
                             <div class="radio">
-                                <input type="radio" name="status_dosen2" id="radio1" value="Pembimbing">
-                                <label for="radio1">
+                                <input type="radio" name="status_dosen2" id="radio11" value="Pembimbing">
+                                <label for="radio11">
                                     Pembimbing
                                 </label>    
                             </div>
                             <div class="radio">
-                                <input type="radio" name="status_dosen2"  id="radio2" value="Pembahas" checked="">
-                                <label for="radio2">
+                                <input type="radio" name="status_dosen2"  id="radio21" value="Pembahas" checked="">
+                                <label for="radio21">
                                     Pembahas
                                 </label>
                             </div>
                         </div>
                         <div class="form-group  ">
+                            <label for="dosen_pembimbing">Nama Dosen 2:</label>
+                            <select class="form-control" name="dosen2">
+                                @foreach ($dosens as $dosen)
+                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group  ">
                             <label for="pembahas">Pembahas:</label>
                             <select class="form-control" name="pembahas">
                                 @foreach ($dosens as $dosen)
-                                <option value="{{$dosen->nama}}">{{$dosen->nama}}</option>
+                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -183,13 +191,13 @@
                         <div class="form-group  ">
                             <label   for="tgl_sk_pembimbing ">Tanggal SK Pembimbing:</label>
                             <div>
-                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tgl_sk_pembimbing " id="tgl_sk_pembimbing " data-datepicker-color="">
+                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tgl_sk_pembimbing" id="tgl_sk_pembimbing" data-datepicker-color="">
                             </div>
                         </div>
                         <div class="form-group  ">
-                            <label   for="tgl_usul ">Tanggal Usul:</label>
+                            <label   for="tgl_usul">Tanggal Usul:</label>
                             <div>
-                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tgl_usul " id="tgl_usul " data-datepicker-color="">
+                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tgl_usul" id="tgl_usul" data-datepicker-color="">
                             </div>
                         </div>
                         <div class="form-group  ">
@@ -199,9 +207,9 @@
                             </div>
                         </div>
                         <div class="form-group  ">
-                            <label   for="tgl_hasil ">Tanggal Hasil:</label>
+                            <label   for="tgl_hasil">Tanggal Hasil:</label>
                             <div>
-                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tgl_hasil " id="tgl_usul " data-datepicker-color="">
+                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tgl_hasil" id="tgl_usul" data-datepicker-color="">
                             </div>
                         </div>
                         <div class="form-group  ">
@@ -213,21 +221,19 @@
                         <div class="form-group  ">
                             <label   for="tgl_ujian_skripsi ">Tanggal Ujian Skripsi:</label>
                             <div>
-                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tgl_ujian_skripsi " id="tgl_usul " data-datepicker-color="">
+                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tgl_ujian_skripsi" id="tgl_ujian_skripsi" data-datepicker-color="">
                             </div>
                         </div>
-                        <div class="form-group  ">
+                        <div class="form-group">
                             <label   for="nilai_ujian_skripsi">Nilai Ujian Skripsi:</label>
                             <div > 
                                 <input type="text" class="form-control" name="nilai_ujian_skripsi">
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
 
-                
 
         </div> 
     </div>

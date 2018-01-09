@@ -32,6 +32,14 @@
                                     @endforeach
                                 </select>
                         </div>
+                        <div class="form-group  ">
+                            <label for="pembimbing">Koor Skripsi:</label>
+                                <select class="form-control" name="koor_skripsi">
+                                    @foreach ($dosens as $dosen)
+                                    <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
+                                    @endforeach
+                                </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,6 +91,13 @@
                             <label   for="alamat">Alamat:</label>
                             <div >
                                 <textarea class="form-control" rows="5" name="alamat"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group  ">
+                            <label   for="tanggal">Tanggal Berkas:</label>
+                            <div>
+                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tanggal" id="tanggal" data-datepicker-color="">
                             </div>
                         </div>
 

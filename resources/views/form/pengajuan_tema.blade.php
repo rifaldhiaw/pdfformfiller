@@ -25,16 +25,16 @@
                             </div>
                         </div>
                         <div class="form-group  ">
-                            <label   for="program_studi">Program Studi:</label>
+                            <label   for="prodi">Program Studi:</label>
                             <div >
                                 <div class="radio">
-                                    <input type="radio" name="program_studi" id="radio1" value="S1 Ilmu Komputer">
+                                    <input type="radio" name="prodi" id="radio1" value="S1 Ilmu Komputer">
                                     <label for="radio1">
                                         S1 Ilmu Komputer
                                     </label>    
                                 </div>
                                 <div class="radio">
-                                    <input type="radio" name="program_studi" id="radio2" value="D3 Manajemen Informatika" checked="">
+                                    <input type="radio" name="prodi" id="radio2" value="D3 Manajemen Informatika" checked="">
                                     <label for="radio2">
                                         D3 Manajemen Informatika
                                     </label>
@@ -42,8 +42,8 @@
                             </div>
                         </div>
                         <div class="form-group  ">
-                            <label for="dosen_pa_id">Dosen PA:</label>
-                                <select class="form-control" name="dosen_pa_id">
+                            <label for="dosen_pa">Dosen PA:</label>
+                                <select class="form-control" name="dosen_pa">
                                     @foreach ($dosens as $dosen)
                                     <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                     @endforeach
@@ -93,16 +93,7 @@
                             <label for="pembimbing">Pembimbing Utama:</label>
                             <select class="form-control" name="pembimbing">
                                 @foreach ($dosens as $dosen)
-                                <option value="{{$dosen->nama}}">{{$dosen->nama}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group  ">
-                            <label for="dosen_pa">Dosen PA:</label>
-                            <select class="form-control" name="dosen_pa">
-                                @foreach ($dosens as $dosen)
-                                <option value="{{$dosen->nama}}">{{$dosen->nama}}</option>
+                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -28,7 +28,7 @@
                             <label for="dosen_pa">Dosen PA:</label>
                             <select class="form-control" name="dosen_pa">
                                 @foreach ($dosens as $dosen)
-                                <option value="{{$dosen->nama}}">{{$dosen->nama}}</option>
+                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -38,17 +38,17 @@
                     <div class="header">Data Seminar </div>
                     <div class="content">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-12">
                                 <div class="form-group ">
-                                    <label   for="status_dosen2">Jenis Seminar:</label>
+                                    <label   for="jenis_seminar">Jenis Seminar:</label>
                                     <div class="radio">
-                                        <input type="radio" name="status_dosen2" id="radio1" value="USUL">
+                                        <input type="radio" name="jenis_seminar" id="radio1" value="USUL">
                                         <label for="radio1">
                                             USUL
                                         </label>    
                                     </div>
                                     <div class="radio">
-                                        <input type="radio" name="status_dosen2"  id="radio2" value="HASIL" checked="">
+                                        <input type="radio" name="jenis_seminar"  id="radio2" value="HASIL" checked="">
                                         <label for="radio2">
                                             HASIL
                                         </label>
@@ -107,7 +107,7 @@
                         </div>
                         <div class="form-group  ">
                             <label for="dosen_pembimbing">Dosen Pembimbing:</label>
-                            <select class="form-control" name="dosen_pembimbing">
+                            <select class="form-control" name="pembimbing">
                                 @foreach ($dosens as $dosen)
                                 <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                 @endforeach
@@ -116,17 +116,25 @@
                         <div class="form-group ">
                             <label   for="status_dosen2">Status Dosen ke-2:</label>
                             <div class="radio">
-                                <input type="radio" name="status_dosen2" id="radio1" value="Pembimbing">
-                                <label for="radio1">
+                                <input type="radio" name="status_dosen2" id="radiostatus_dosen21" value="Pembimbing">
+                                <label for="radiostatus_dosen21">
                                     Pembimbing
                                 </label>    
                             </div>
                             <div class="radio">
-                                <input type="radio" name="status_dosen2"  id="radio2" value="Pembahas" checked="">
-                                <label for="radio2">
+                                <input type="radio" name="status_dosen2"  id="radiostatus_dosen22" value="Pembahas" checked="">
+                                <label for="radiostatus_dosen22">
                                     Pembahas
                                 </label>
                             </div>
+                        </div>
+                        <div class="form-group  ">
+                            <label for="pembahas">Nama Dosen 2:</label>
+                            <select class="form-control" name="nama_dosen2">
+                                @foreach ($dosens as $dosen)
+                                <option value="{{$dosen->nama}}">{{$dosen->nama}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group  ">
                             <label for="pembahas">Pembahas:</label>
@@ -139,7 +147,7 @@
                         <div class="form-group  ">
                             <label   for="tanggal_berkas ">Tanggal Berkas:</label>
                             <div>
-                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tanggal_berkas " id="tanggal_berkas " data-datepicker-color="">
+                                <input data-date-format="dd-mm-yyyy" type="text" class="form-control date-picker" name="tanggal_berkas" id="tanggal_berkas" data-datepicker-color="">
                             </div>
                         </div>
                         

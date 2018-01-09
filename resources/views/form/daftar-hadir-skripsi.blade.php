@@ -88,13 +88,13 @@
                         <div class="form-group ">
                             <label   for="dosen2">Status Dosen ke-2:</label>
                             <div class="radio">
-                                <input type="radio" name="dosen2" id="radio1" value="Pembimbing">
+                                <input type="radio" name="status_dosen2" id="radio1" value="Pembimbing">
                                 <label for="radio1">
                                     Pembimbing
                                 </label>    
                             </div>
                             <div class="radio">
-                                <input type="radio" name="dosen2"  id="radio2" value="Pembahas" checked="">
+                                <input type="radio" name="status_dosen2"  id="radio2" value="Pembahas" checked="">
                                 <label for="radio2">
                                     Pembahas
                                 </label>

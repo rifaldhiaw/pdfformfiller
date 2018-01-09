@@ -4,7 +4,7 @@
 @section('h1', 'Alih Program dari Luar Unila')
 
 @section('content')
-<form action="{{ url('alih_program_dalam') }}" method="post">
+<form action="{{ url('alih_program_luar') }}" method="post">
     {{ csrf_field() }}
     <div class="form-horizontal content-center ">
         <div class="row">

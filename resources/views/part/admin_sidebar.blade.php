@@ -23,12 +23,12 @@
 					<div class="collapse" id="krs" aria-expanded="false" style="height: 0px;">
 						<ul class="nav">
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/pengisian_krs')}}">
 									<span class="sidebar-normal">KRS Sementara</span>
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/perbaikan_nilai')}}">
 									<span class="sidebar-normal">Perbaikan Nilai</span>
 								</a>
 							</li>
@@ -50,7 +50,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/seminar_kp')}}">
 									<span class="sidebar-normal">Seminar PKL</span>
 								</a>
 							</li>
@@ -67,17 +67,17 @@
 					<div class="collapse" id="skripsi" aria-expanded="false" style="height: 0px;">
 						<ul class="nav">
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/pengajuan_tema')}}">
 									<span class="sidebar-normal">Pengajuan Tema</span>
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/pengambilan_data')}}">
 									<span class="sidebar-normal">Pengambilan Data</span>
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/ujian_skripsi')}}">
 									<span class="sidebar-normal">Ujian Skripsi</span>
 								</a>
 							</li>
@@ -94,17 +94,17 @@
 					<div class="collapse" id="Seminar" aria-expanded="false" style="height: 0px;">
 						<ul class="nav">
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/seminar_usulhasil')}}">
 									<span class="sidebar-normal">Seminar Usul</span>
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/seminar_usulhasil')}}">
 									<span class="sidebar-normal">Seminar Hasil</span>
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/daftar_hadir_skripsi')}}">
 									<span class="sidebar-normal">Daftar Hadir</span>
 								</a>
 							</li>
@@ -121,17 +121,17 @@
 					<div class="collapse" id="Ceklis" aria-expanded="false" style="height: 0px;">
 						<ul class="nav">
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/alih_program_luar')}}">
 									<span class="sidebar-normal">Alih Program (Luar)</span>
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/alih_program_dalam')}}">
 									<span class="sidebar-normal">Alih Program (dalam)</span>
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="{{url('/admin/data_alumni')}}">
 									<span class="sidebar-normal">Data Lulusan</span>
 								</a>
 							</li>
@@ -155,11 +155,6 @@
 							<li>
 								<a href="{{route('admin_dosen')}}">
 									<span class="sidebar-normal">Data Dosen</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="sidebar-normal">Data Lulusan</span>
 								</a>
 							</li>
 						</ul>

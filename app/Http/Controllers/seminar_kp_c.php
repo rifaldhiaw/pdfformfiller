@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use App\seminar_kp;
 use Carbon\Carbon;
 use Debugbar;
 
-class UserSeminarPKL extends Controller
+class seminar_kp_c extends Controller
 {
     public function view()
 	{
     	//ambil data dosen
     	$dosens = Dosen::all();
 
-    	return view('form.seminar-pkl')->with('dosens', $dosens);
+    	return view('form.seminar_kp')->with('dosens', $dosens);
 	}
 
     public function print()
@@ -22,26 +23,26 @@ class UserSeminarPKL extends Controller
     	$request 		= request();
 
     	$dosen_pembimbing_id = $request->input('dosen_pembimbing');
-    	$dosen_pembimbing = Dosen::find($dosen_pembimbing_id)->toArray();
+    	$dosen_pembimbing_ar = Dosen::find($dosen_pembimbing_id)->toArray();
 
         $koor_pkl_id = $request->input('koor_pkl');
-        $koor_pkl = Dosen::find($koor_pkl_id)->toArray();
+        $koor_pkl_ar = Dosen::find($koor_pkl_id)->toArray();
 
         $dosen_pa_id = $request->input('dosen_pa');
-        $dosen_pa = Dosen::find($dosen_pa_id)->toArray();
+        $dosen_pa_ar = Dosen::find($dosen_pa_id)->toArray();
 
     	//ambil data dari input user
     	$nama 			= $request->input('nama');
     	$npm 			= $request->input('npm');
         $judul          = $request->input('judul');
-        $nip_dosen      = $dosen_pembimbing["nip"];
-        $dosen_pembimbing      = $dosen_pembimbing["nama"];
+        $nip_dosen      = $dosen_pembimbing_ar["nip"];
+        $dosen_pembimbing      = $dosen_pembimbing_ar["nama"];
     	$pembimbing_lapang 	= $request->input('pembimbing_lapang');
     	$nip_lapang 	= $request->input('nip_lapang');
-        $nip_koor      = $koor_pkl["nip"];
-        $koor_pkl      = $koor_pkl["nama"];
-        $nip_pa      = $dosen_pa["nip"];
-        $dosen_pa      = $dosen_pa["nama"];
+        $nip_koor      = $koor_pkl_ar["nip"];
+        $koor_pkl      = $koor_pkl_ar["nama"];
+        $nip_pa      = $dosen_pa_ar["nip"];
+        $dosen_pa      = $dosen_pa_ar["nama"];
         $hari        = $request->input('hari');
         $tanggal        = $request->input('tanggal');
         $pukul        = $request->input('pukul');
@@ -49,19 +50,25 @@ class UserSeminarPKL extends Controller
         $tempat_pkl       = $request->input('tempat_pkl');
 
     	//insert data ke database
-    	// $daftar_kp = new Daftar_kp;
-    	// $daftar_kp->nama = $nama;
-    	// $daftar_kp->npm = $npm;
-    	// $daftar_kp->dibuat = Carbon::now();
-    	// $daftar_kp->program_studi = $program_studi;
-    	// $daftar_kp->semester = $semester;
-    	// $daftar_kp->tahun_ajar = $tahun_ajar;
-    	// $daftar_kp->tanggal = Carbon::now();
-    	// $daftar_kp->dosen_pa = $dosen_pa;
-    	// $daftar_kp->nip_pa = $nip_pa;
-    	// $daftar_kp->tempat_pkl = $tempat_pkl;
-    	// $daftar_kp->alamat_pkl = $alamat_pkl;
-    	// $daftar_kp->save();
+    	$daftar_kp = new seminar_kp;
+    	$daftar_kp->nama = $nama;
+        $daftar_kp->npm = $npm;
+        $daftar_kp->judul = $judul;
+        $daftar_kp->nip_dosen = $nip_dosen;
+        $daftar_kp->dosen_pembimbing = $dosen_pembimbing;
+        $daftar_kp->pembimbing_lapang = $pembimbing_lapang;
+        $daftar_kp->nip_lapang = $nip_lapang;
+        $daftar_kp->nip_koor = $nip_koor;
+        $daftar_kp->koor_kp = $koor_pkl;
+        $daftar_kp->nip_pa = $nip_pa;
+        $daftar_kp->dosen_pa = $dosen_pa;
+        $daftar_kp->hari = $hari;
+        $daftar_kp->tanggal = $tanggal;
+        $daftar_kp->pukul = $pukul;
+        $daftar_kp->ruang = $ruang;
+        $daftar_kp->tempat_pkl = $tempat_pkl;
+
+    	$daftar_kp->save();
 
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(storage_path('app\public\form\seminar_kp.docx'));
         $pathSaveFile = storage_path('app\public\form\seminar-kp-pkl-'.$npm.'.docx');

@@ -24,6 +24,19 @@
                                 <input type="text" class="form-control" name="npm">    
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="header">Data Studi</div>
+                    <div class="content">
+                        <div class="form-group  ">
+                            <label   for="prodi">Program Studi:</label>
+                            <div >
+                                <input type="text" class="form-control" name="prodi">    
+                            </div>
+                        </div>
                         <div class="form-group  ">
                             <label  for="smt">Semester:</label>
                             <div >
@@ -44,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+        </div>
         </div>
     </div>
     <div class="space"></div>
