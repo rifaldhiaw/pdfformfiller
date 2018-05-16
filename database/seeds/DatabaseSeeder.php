@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,10 +14,66 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
-        DB::table('users')->insert([
-            'name' => 'admin',
+        DB::table('users')->insert([[
+            'nama' => 'admin',
             'email' => 'admin@mail.com',
+            'is_admin' => '1',
             'password' => bcrypt('123456'),
+        ]
+        ]);
+
+        DB::table('form_templates')->delete();
+        DB::table('form_templates')->insert([[
+            'nama' => 'daftar_hadir.docx',
+            'dl_link' => 'storage/form/daftar_hadir.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],[
+            'nama' => 'pendaftaran_pkl.docx',
+            'dl_link' => 'storage/form/pendaftaran_pkl.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],[
+            'nama' => 'pengajuan_tema.docx',
+            'dl_link' => 'storage/form/pengajuan_tema.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],[
+            'nama' => 'pengambilan_data.docx',
+            'dl_link' => 'storage/form/pengambilan_data.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],[
+            'nama' => 'pengisian_krs.docx',
+            'dl_link' => 'storage/form/pengisian_krs.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],[
+            'nama' => 'perbaikan_nilai.docx',
+            'dl_link' => 'storage/form/perbaikan_nilai.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],[
+            'nama' => 'seminar_kp.docx',
+            'dl_link' => 'storage/form/seminar_kp.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],[
+            'nama' => 'seminar_ta.docx',
+            'dl_link' => 'storage/form/seminar_ta.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],[
+            'nama' => 'seminar_usulhasil.docx',
+            'dl_link' => 'storage/form/seminar_usulhasil.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],[
+            'nama' => 'ujian_skripsi.docx',
+            'dl_link' => 'storage/form/ujian_skripsi.docx',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ],
         ]);
 
         DB::table('dosens')->delete();

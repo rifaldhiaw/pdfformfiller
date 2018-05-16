@@ -10,6 +10,7 @@ use Debugbar;
 
 class alih_program_luar_c extends Controller
 {
+
     public function view()
 	{
     	//ambil data dosen
@@ -30,7 +31,7 @@ class alih_program_luar_c extends Controller
     	$npm 			= $request->input('npm');
     	$prodi 	= $request->input('prodi');
         $universitas        = $request->input('universitas');
-        $akreditas        = $request->input('akreditas');
+        $akreditas        = $request->input('akreditasi');
         $sks          = $request->input('sks');
         $ipk          = $request->input('ipk');
         $smt      = $request->input('smt');
@@ -41,7 +42,7 @@ class alih_program_luar_c extends Controller
     	$daftar_kp->npm = $npm;
         $daftar_kp->prodi = $prodi;
         $daftar_kp->universitas = $universitas;
-        $daftar_kp->akreditas = $akreditas;
+        $daftar_kp->akreditasi = $akreditas;
         $daftar_kp->sks = $sks;
         $daftar_kp->ipk = $ipk;
         $daftar_kp->smt = $smt;

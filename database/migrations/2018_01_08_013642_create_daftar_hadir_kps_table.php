@@ -15,9 +15,7 @@ class CreateDaftarHadirKpsTable extends Migration
     {
         Schema::create('daftar_hadir_kps', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
-            $table->string('prodi');
+            $table->integer('user_id'); //nama, npm, prodi, 
             $table->string('judul');
             $table->string('tempat_kp');
             $table->string('alamat');

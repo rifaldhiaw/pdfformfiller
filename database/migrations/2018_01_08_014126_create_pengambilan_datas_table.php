@@ -15,16 +15,13 @@ class CreatePengambilanDatasTable extends Migration
     {
         Schema::create('pengambilan_datas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
+            $table->integer('user_id'); //nama, npm, 
             $table->string('judul');
             $table->string('pembimbing');
             $table->string('nama_data');
             $table->string('tempat');
             $table->string('alamat');
             $table->string('karya_tulis');
-            $table->string('koor_skripsi');
-            $table->string('nip_koor');
             $table->string('tanggal');
             $table->timestamps();
         });

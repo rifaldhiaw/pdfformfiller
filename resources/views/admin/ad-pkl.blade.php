@@ -22,8 +22,8 @@
                                     <tbody>
                                         @foreach ($daftar_kps as $daftar_kp)
                                         <tr>
-                                            <td>{{ $daftar_kp->npm }}</td>
-                                            <td>{{ $daftar_kp->nama }}</td>
+                                            <td>{{ $daftar_kp->user->npm }}</td>
+                                            <td>{{ $daftar_kp->user->nama }}</td>
                                             <td>{{ $daftar_kp->tempat_pkl }}</td>
                                             <td>{{ $daftar_kp->dibuat }}</td>
                                             <td>

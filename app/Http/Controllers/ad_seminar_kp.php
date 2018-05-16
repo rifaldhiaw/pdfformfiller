@@ -32,19 +32,20 @@ class ad_seminar_kp extends Controller
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(
             storage_path('app\public\form\seminar_kp.docx')
         );
-        $pathSaveFile = storage_path('app\public\results\seminar_kp-'.$seminar_kp->npm.'.docx');
+        $pathSaveFile = storage_path('app\public\results\seminar_kp-'.$seminar_kp->user->npm.'.docx');
 
-        $templateProcessor->setValue('nama', $seminar_kp->nama);
-        $templateProcessor->setValue('npm', $seminar_kp->npm);
+        $templateProcessor->setValue('nama', $seminar_kp->user->nama);
+        $templateProcessor->setValue('npm', $seminar_kp->user->npm);
+        $templateProcessor->setValue('dosen_pa', $seminar_kp->user->dosen->nama);
+        $templateProcessor->setValue('nip_pa', $seminar_kp->user->dosen->nip);
+
         $templateProcessor->setValue('judul', $seminar_kp->judul);
         $templateProcessor->setValue('dosen_pembimbing', $seminar_kp->dosen_pembimbing);
         $templateProcessor->setValue('nip_dosen', $seminar_kp->nip_dosen);
         $templateProcessor->setValue('pembimbing_lapang', $seminar_kp->pembimbing_lapang);
         $templateProcessor->setValue('nip_lapang', $seminar_kp->nip_lapang);
-        $templateProcessor->setValue('koor_pkl', $seminar_kp->koor_pkl);
+        $templateProcessor->setValue('koor_pkl', $seminar_kp->koor_kp);
         $templateProcessor->setValue('nip_koor', $seminar_kp->nip_koor);
-        $templateProcessor->setValue('dosen_pa', $seminar_kp->dosen_pa);
-        $templateProcessor->setValue('nip_pa', $seminar_kp->nip_pa);
         $templateProcessor->setValue('hari', $seminar_kp->hari);
         $templateProcessor->setValue('tanggal', $seminar_kp->tanggal);
         $templateProcessor->setValue('pukul', $seminar_kp->pukul);

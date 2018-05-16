@@ -15,9 +15,7 @@ class CreatePerbaikanNilaisTable extends Migration
     {
         Schema::create('perbaikan_nilais', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
-            $table->string('prodi');
+            $table->integer('user_id'); //nama, npm, prodi
             $table->string('nama_mk');
             $table->string('kode_mk');
             $table->string('semester');

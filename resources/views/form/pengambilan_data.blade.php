@@ -6,44 +6,9 @@
 @section('content')
 <form action="{{ url('pengambilan_data') }}" method="post">
   {{ csrf_field() }}
-    <div class="form-horizontal content-center ">
+    <div class="form-horizontal content-center container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="header">Data Diri</div>
-                    <div class="content">
-                        <div class="form-group  ">
-                            <label  for="nama">Nama:</label>
-                            <div >
-                                <input type="text" class="form-control" name="nama">
-                            </div>
-                        </div>
-                        <div class="form-group  ">
-                            <label  for="npm">NPM:</label>
-                            <div >
-                                <input type="text" class="form-control" name="npm">    
-                            </div>
-                        </div>
-                        <div class="form-group  ">
-                            <label for="pembimbing">Pembimbing:</label>
-                                <select class="form-control" name="pembimbing">
-                                    @foreach ($dosens as $dosen)
-                                    <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
-                                    @endforeach
-                                </select>
-                        </div>
-                        <div class="form-group  ">
-                            <label for="pembimbing">Koor Skripsi:</label>
-                                <select class="form-control" name="koor_skripsi">
-                                    @foreach ($dosens as $dosen)
-                                    <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
-                                    @endforeach
-                                </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8 offset-md-2 ">
                 <div class="card">
                     <div class="header">Data Penelitian : </div>
                     <div class="content">
@@ -73,20 +38,24 @@
                             </div>
                         </div>
                         
-                        <div class="form-group  ">
-                            <label   for="nama_data">Nama Data:</label>
-                            <div >
-                                <input type="text" class="form-control" name="nama_data">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group  ">
+                                    <label   for="nama_data">Nama Data:</label>
+                                    <div >
+                                        <input type="text" class="form-control" name="nama_data">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group  ">
+                                    <label   for="tempat">Tempat:</label>
+                                    <div >
+                                        <input type="text" class="form-control" name="tempat">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="form-group  ">
-                            <label   for="tempat">Tempat:</label>
-                            <div >
-                                <input type="text" class="form-control" name="tempat">
-                            </div>
-                        </div>
-
                         <div class="form-group  ">
                             <label   for="alamat">Alamat:</label>
                             <div >
@@ -103,16 +72,22 @@
 
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="header">Print / Download</div>
+                    <div class="content">
+                        <div class="form-group">
+                            <div class=" text-center">
+                                <button type="submit" class="btn btn-primary btn-lg my-0">
+                                    Print / Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div> 
-    </div>
-    <div class="space"></div>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="form-group  ">
-                <button type="submit" class="btn btn-info">Print</button>
-            </div>
-        </div>
     </div>
 </form> 
 @endsection

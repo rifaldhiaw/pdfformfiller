@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use Illuminate\Support\Facades\Auth;
 use App\data_alumni;
 use Carbon\Carbon;
 use Debugbar;
 
 class data_alumni_c extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function view()
 	{
     	//ambil data dosen
@@ -25,14 +31,15 @@ class data_alumni_c extends Controller
     {
     	$request 		= request();
 
-        $pembimbing_ar = Dosen::find( $request->input('pembimbing') )->toArray();
+        $pembimbing_ar = Dosen::find( Auth::User()->dosen_id)->toArray();
         $dosen2_ar = Dosen::find( $request->input('dosen2') )->toArray();
         $pembahas_ar = Dosen::find( $request->input('pembahas') )->toArray();
 
     	//ambil data dari input user
-    	$nama 			= $request->input('nama');
-    	$npm 			= $request->input('npm');
-    	$prodi 	= $request->input('prodi');
+    	$nama 			= Auth::User()->nama;
+    	$npm 			= Auth::User()->npm;
+    	$prodi 	        = Auth::User()->prodi;
+
         $email  = $request->input('email');
         $nohp  = $request->input('nohp');
         $alamat  = $request->input('alamat');
@@ -67,9 +74,7 @@ class data_alumni_c extends Controller
 
     	//insert data ke database
     	$daftar_kp = new data_alumni;
-    	$daftar_kp->nama = $nama;
-    	$daftar_kp->npm = $npm;
-        $daftar_kp->prodi = $prodi;
+    	$daftar_kp->user_id = Auth::id();
         $daftar_kp->email = $email;
         $daftar_kp->nohp = $nohp;
         $daftar_kp->alamat = $alamat;

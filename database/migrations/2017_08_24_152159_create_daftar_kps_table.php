@@ -15,15 +15,11 @@ class CreateDaftarKpsTable extends Migration
     {
         Schema::create('daftar_kps', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
+            $table->integer('user_id'); //nama, npm, pa
             $table->dateTime('dibuat');
-            $table->string('program_studi');
             $table->string('semester');
             $table->string('tahun_ajar');
             $table->dateTime('tanggal');
-            $table->string('dosen_pa');
-            $table->string('nip_pa');
             $table->string('tempat_pkl');
             $table->string('alamat_pkl');
             $table->rememberToken();

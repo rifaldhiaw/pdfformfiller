@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use App\seminar_usulhasil;
 use Carbon\Carbon;
 use Debugbar;
 
 class seminar_usulhasil_c extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function view()
 	{
     	//ambil data dosen
@@ -26,11 +33,14 @@ class seminar_usulhasil_c extends Controller
     	$request 		= request();
 
         $pembimbing_ar = Dosen::find( $request->input('pembimbing') )->toArray();
-        $dosen_pa_ar = Dosen::find( $request->input('dosen_pa') )->toArray();
+        // $dosen_pa_ar = Dosen::find( $request->input('dosen_pa') )->toArray();
 
     	//ambil data dari input user
-    	$nama 			= $request->input('nama');
-    	$npm 			= $request->input('npm');
+    	$nama 			= Auth::User()->nama;
+    	$npm 			= Auth::User()->npm;
+        $dosen_pa       = Auth::User()->dosen->nama;
+        $nip_pa         = Auth::User()->dosen->nip;
+
         $judul          = $request->input('judul');
     	$jenis_seminar 	= $request->input('jenis_seminar');
         $pembimbing      = $pembimbing_ar['nama'];
@@ -38,8 +48,7 @@ class seminar_usulhasil_c extends Controller
         $status_dosen2    = $request->input('status_dosen2');
         $nama_dosen2      = $request->input('nama_dosen2');
         $pembahas      = $request->input('pembahas');
-        $dosen_pa      = $dosen_pa_ar['nama'];
-        $nip_pa      = $dosen_pa_ar['nip'];
+
         $tanggal_berkas      = $request->input('tanggal_berkas');
         $hari      = $request->input('hari');
         $tanggal      = $request->input('tanggal');
@@ -48,8 +57,7 @@ class seminar_usulhasil_c extends Controller
 
     	//insert data ke database
     	$seminar_usulhasil = new seminar_usulhasil;
-    	$seminar_usulhasil->nama = $nama;
-    	$seminar_usulhasil->npm = $npm;
+    	$seminar_usulhasil->user_id = Auth::id();
         $seminar_usulhasil->judul = $judul;
         $seminar_usulhasil->jenis_seminar = $jenis_seminar;
         $seminar_usulhasil->pembimbing = $pembimbing;
@@ -57,8 +65,6 @@ class seminar_usulhasil_c extends Controller
         $seminar_usulhasil->status_dosen2 = $status_dosen2;
         $seminar_usulhasil->nama_dosen2 = $nama_dosen2;
         $seminar_usulhasil->pembahas = $pembahas;
-        $seminar_usulhasil->dosen_pa = $dosen_pa;
-        $seminar_usulhasil->nip_pa = $nip_pa;
         $seminar_usulhasil->tanggal_berkas = $tanggal_berkas;
         $seminar_usulhasil->hari = $hari;
         $seminar_usulhasil->tanggal = $tanggal;

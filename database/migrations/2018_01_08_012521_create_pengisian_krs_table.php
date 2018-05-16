@@ -15,16 +15,10 @@ class CreatePengisianKrsTable extends Migration
     {
         Schema::create('pengisian_krs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
-            $table->string('fakultas');
-            $table->string('jurusan');
-            $table->string('prodi');
+            $table->integer('user_id'); //nama, npm, dosen_pa, nip_pa, fakultas, jurusan, prodi
             $table->string('semester');
             $table->string('tahun_ajar');
             $table->integer('jumlah_sks');
-            $table->string('dosen_pa');
-            $table->string('nip_dosen_pa');
             $table->timestamps();
         });
     }

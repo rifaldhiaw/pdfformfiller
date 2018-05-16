@@ -32,10 +32,13 @@ class ad_seminar_usulhasil extends Controller
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(
             storage_path('app\public\form\seminar_usulhasil.docx')
         );
-        $pathSaveFile = storage_path('app\public\results\seminar_usulhasil-'.$seminar_usulhasil->npm.'.docx');
+        $pathSaveFile = storage_path('app\public\results\seminar_usulhasil-'.$seminar_usulhasil->user->npm.'.docx');
 
-        $templateProcessor->setValue('nama', $seminar_usulhasil->nama);
-        $templateProcessor->setValue('npm', $seminar_usulhasil->npm);
+        $templateProcessor->setValue('nama', $seminar_usulhasil->user->nama);
+        $templateProcessor->setValue('npm', $seminar_usulhasil->user->npm);
+        $templateProcessor->setValue('dosen_pa', $seminar_usulhasil->user->dosen->nama);
+        $templateProcessor->setValue('nip_pa', $seminar_usulhasil->user->dosen->nip);
+
         $templateProcessor->setValue('judul', $seminar_usulhasil->judul);
         $templateProcessor->setValue('jenis_seminar', $seminar_usulhasil->jenis_seminar);
         $templateProcessor->setValue('pembimbing', $seminar_usulhasil->pembimbing);
@@ -43,8 +46,6 @@ class ad_seminar_usulhasil extends Controller
         $templateProcessor->setValue('status_dosen2', $seminar_usulhasil->status_dosen2);
         $templateProcessor->setValue('nama_dosen2', $seminar_usulhasil->nama_dosen2);
         $templateProcessor->setValue('pembahas', $seminar_usulhasil->pembahas);
-        $templateProcessor->setValue('dosen_pa', $seminar_usulhasil->dosen_pa);
-        $templateProcessor->setValue('nip_pa', $seminar_usulhasil->nip_pa);
         $templateProcessor->setValue('tanggal_berkas', $seminar_usulhasil->tanggal_berkas);
         $templateProcessor->setValue('hari', $seminar_usulhasil->hari);
         $templateProcessor->setValue('tanggal', $seminar_usulhasil->tanggal);

@@ -15,12 +15,10 @@ class CreateAlihProgramDalamsTable extends Migration
     {
         Schema::create('alih_program_dalams', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
+            $table->integer('user_id'); //nama, npm
             $table->string('smt');
             $table->string('ipk');
             $table->string('sks');
-            $table->string('prodi');
             $table->timestamps();
         });
     }

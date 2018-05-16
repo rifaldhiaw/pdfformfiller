@@ -1,7 +1,7 @@
     <div class="sidebar" data-color="azure" data-image="{{ URL::asset('ad/img/sidebar-4.jpg') }}">
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="{{url('')}}" class="simple-text">
+                <a href="{{url('/admin')}}" class="simple-text">
                     Form Pelayanan
                 </a>
             </div>
@@ -148,13 +148,18 @@
 					<div class="collapse" id="Setting" aria-expanded="false" style="height: 0px;">
 						<ul class="nav">
 							<li>
-								<a href="{{route('form_template')}}">
-									<span class="sidebar-normal">Form Templates</span>
+								<a href="{{url('/admin/user')}}">
+									<span class="sidebar-normal">Data User</span>
 								</a>
 							</li>
 							<li>
 								<a href="{{route('admin_dosen')}}">
 									<span class="sidebar-normal">Data Dosen</span>
+								</a>
+							</li>
+							<li>
+								<a href="{{route('form_template')}}">
+									<span class="sidebar-normal">Form Templates</span>
 								</a>
 							</li>
 						</ul>

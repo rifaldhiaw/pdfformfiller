@@ -32,11 +32,11 @@ class ad_alih_program_dalam extends Controller
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(
             storage_path('app\public\form\alih_program_dalam.docx')
         );
-        $pathSaveFile = storage_path('app\public\results\alih_program_dalam-'.$alih_program_dalam->npm.'.docx');
+        $pathSaveFile = storage_path('app\public\results\alih_program_dalam-'.$alih_program_dalam->user->npm.'.docx');
 
-        $templateProcessor->setValue('nama', $alih_program_dalam->nama);
-        $templateProcessor->setValue('npm', $alih_program_dalam->npm);
-        $templateProcessor->setValue('prodi', $alih_program_dalam->prodi);
+        $templateProcessor->setValue('nama', $alih_program_dalam->user->nama);
+        $templateProcessor->setValue('npm', $alih_program_dalam->user->npm);
+        $templateProcessor->setValue('prodi', $alih_program_dalam->user->prodi);
         $templateProcessor->setValue('sks', $alih_program_dalam->sks);
         $templateProcessor->setValue('ipk', $alih_program_dalam->ipk);
         $templateProcessor->setValue('smt', $alih_program_dalam->smt);

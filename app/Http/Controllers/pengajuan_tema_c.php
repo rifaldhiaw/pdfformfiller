@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use Illuminate\Support\Facades\Auth;
 use App\pengajuan_tema;
 use Carbon\Carbon;
 use Debugbar;
 
 class pengajuan_tema_c extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function view()
 	{
     	//ambil data dosen
@@ -25,16 +31,23 @@ class pengajuan_tema_c extends Controller
     {
     	$request 		= request();
 
-        $dosen_pa_ar = Dosen::find( $request->input('dosen_pa') )->toArray();
+        $dosen_pa_ar = Dosen::find( Auth::User()->dosen_id )->toArray();
         $pembimbing_ar = Dosen::find( $request->input('pembimbing') )->toArray();
 
     	//ambil data dari input user
-    	$nama 			= $request->input('nama');
-    	$npm 			= $request->input('npm');
-    	$prodi 	= $request->input('prodi');
-        $karya_tulis  = $request->input('karya_tulis');
-        $judul_1  = $request->input('judul_1');
-        $judul_2  = $request->input('judul_2');
+    	$nama 			= Auth::User()->nama;
+    	$npm 			= Auth::User()->npm;
+    	$prodi 	        = Auth::User()->prodi;
+        $karya_tulis    = $request->input('karya_tulis');
+        $judul_1        = $request->input('judul_1');
+        
+        if($request->has('judul_2')){
+            $judul_2  = $request->input('judul_2');
+        }
+        else{
+            $judul_2 = "";
+        }
+
         $pembimbing  = $pembimbing_ar['nama'];
         $nip_pembimbing  = $pembimbing_ar['nip'];
         $dosen_pa  = $dosen_pa_ar['nama'];
@@ -42,16 +55,12 @@ class pengajuan_tema_c extends Controller
 
     	//insert data ke database
     	$daftar_kp = new pengajuan_tema;
-    	$daftar_kp->nama = $nama;
-    	$daftar_kp->npm = $npm;
-        $daftar_kp->prodi = $prodi;
+    	$daftar_kp->user_id = Auth::id();
         $daftar_kp->karya_tulis = $karya_tulis;
         $daftar_kp->judul_1 = $judul_1;
         $daftar_kp->judul_2 = $judul_2;
         $daftar_kp->pembimbing = $pembimbing;
         $daftar_kp->nip_pembimbing = $nip_pembimbing;
-        $daftar_kp->dosen_pa = $dosen_pa;
-        $daftar_kp->nip_pa = $nip_pa;
     	$daftar_kp->save();
 
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(

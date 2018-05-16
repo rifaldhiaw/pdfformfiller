@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use Illuminate\Support\Facades\Auth;
 use App\alih_program_dalam;
 use Carbon\Carbon;
 use Debugbar;
 
 class alih_program_dalam_c extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function view()
 	{
     	//ambil data dosen
@@ -26,21 +32,19 @@ class alih_program_dalam_c extends Controller
     	$request       = request();
 
         //ambil data dari input user
-        $nama           = $request->input('nama');
-        $npm            = $request->input('npm');
+        $nama           = Auth::User()->nama;
+        $npm            = Auth::User()->npm;
+        $prodi          = Auth::User()->prodi;
         $sks          = $request->input('sks');
         $ipk          = $request->input('ipk');
-        $smt      = $request->input('smt');
-        $prodi      = $request->input('prodi');
+        $smt          = $request->input('smt');
 
         //insert data ke database
         $daftar_kp = new alih_program_dalam;
-        $daftar_kp->nama = $nama;
-        $daftar_kp->npm = $npm;
+        $daftar_kp->user_id = Auth::id();
         $daftar_kp->sks = $sks;
         $daftar_kp->ipk = $ipk;
         $daftar_kp->smt = $smt;
-        $daftar_kp->prodi = $prodi;
         $daftar_kp->save();
 
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(storage_path

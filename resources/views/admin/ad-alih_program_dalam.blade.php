@@ -22,9 +22,9 @@
                                     <tbody>
                                         @foreach ($datas as $data)
                                         <tr>
-                                            <td>{{ $data->npm }}</td>
-                                            <td>{{ $data->nama }}</td>
-                                            <td>{{ $data->prodi }}</td>
+                                            <td>{{ $data->user->npm }}</td>
+                                            <td>{{ $data->user->nama }}</td>
+                                            <td>{{ $data->user->prodi }}</td>
                                             <td>{{ $data->created_at->format('d-m-Y') }}</td>
                                             <td>
                                                 <form action="{{ url()->current() }}/print" method="post">

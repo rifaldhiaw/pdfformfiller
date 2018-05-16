@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use Illuminate\Support\Facades\Auth;
 use App\ujian_skripsi;
 use Carbon\Carbon;
 use Debugbar;
 
 class ujian_skripsi_c extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function view()
 	{
     	//ambil data dosen
@@ -28,11 +34,13 @@ class ujian_skripsi_c extends Controller
         $ketua_penguji_ar = Dosen::find( $request->input('ketua_penguji') )->toArray();
         $dosen2_ar = Dosen::find( $request->input('dosen2') )->toArray();
         $penguji_ar = Dosen::find( $request->input('penguji') )->toArray();
-        $dosen_pa_ar = Dosen::find( $request->input('dosen_pa') )->toArray();
 
     	//ambil data dari input user
-    	$nama 			= $request->input('nama');
-    	$npm 			= $request->input('npm');
+    	$nama 			= Auth::User()->nama;
+    	$npm 			= Auth::User()->npm;
+        $dosen_pa       = Auth::User()->dosen->nama;
+        $nip_pa         = Auth::User()->dosen->nip;
+
     	$judul 	= $request->input('judul');
 
         $ketua_penguji  = $ketua_penguji_ar['nama'];
@@ -45,9 +53,6 @@ class ujian_skripsi_c extends Controller
         $penguji  = $penguji_ar['nama'];
         $nip_penguji  = $penguji_ar['nip'];
 
-        $dosen_pa  = $dosen_pa_ar['nama'];
-        $nip_pa  = $dosen_pa_ar['nip'];
-
         $tanggal_berkas   = $request->input('tanggal_berkas');
         $hari  = $request->input('hari');
         $tanggal  = $request->input('tanggal');
@@ -56,8 +61,7 @@ class ujian_skripsi_c extends Controller
 
     	//insert data ke database
     	$daftar_kp = new ujian_skripsi;
-    	$daftar_kp->nama = $nama;
-    	$daftar_kp->npm = $npm;
+    	$daftar_kp->user_id = Auth::id();
         $daftar_kp->judul = $judul;
         $daftar_kp->ketua_penguji = $ketua_penguji;
         $daftar_kp->nip_ketua_penguji = $nip_ketua_penguji;
@@ -66,8 +70,6 @@ class ujian_skripsi_c extends Controller
         $daftar_kp->nip_dosen2 = $nip_dosen2;
         $daftar_kp->penguji = $penguji;
         $daftar_kp->nip_penguji = $nip_penguji;
-        $daftar_kp->dosen_pa = $dosen_pa;
-        $daftar_kp->nip_pa = $nip_pa;
         $daftar_kp->tanggal_berkas  = $tanggal_berkas ;
         $daftar_kp->hari = $hari;
         $daftar_kp->tanggal = $tanggal;

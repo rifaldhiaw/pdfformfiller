@@ -16,6 +16,7 @@
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link href="{{ URL::asset('ad/css/pe-icon-7-stroke.css') }}" rel="stylesheet" />
         
         <!-- CSS Files -->
         <link href=" {{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" />

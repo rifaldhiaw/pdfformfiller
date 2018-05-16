@@ -32,12 +32,13 @@ class ad_perbaikan_nilai extends Controller
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(
             storage_path('app\public\form\perbaikan_nilai.docx')
         );
-        $pathSaveFile = storage_path('app\public\results\perbaikan_nilai-'.$perbaikan_nilai->npm.'.docx');
+        $pathSaveFile = storage_path('app\public\results\perbaikan_nilai-'.$perbaikan_nilai->user->npm.'.docx');
 
-        $templateProcessor->setValue('nama', $perbaikan_nilai->nama);
-        $templateProcessor->setValue('npm', $perbaikan_nilai->npm);
-        $templateProcessor->setValue('prodi', $perbaikan_nilai->prodi);
-        $templateProcessor->setValue('jurusan', 'Ilmu Komputer');
+        $templateProcessor->setValue('nama', $perbaikan_nilai->user->nama);
+        $templateProcessor->setValue('npm', $perbaikan_nilai->user->npm);
+        $templateProcessor->setValue('prodi', $perbaikan_nilai->user->prodi);
+        $templateProcessor->setValue('jurusan', $perbaikan_nilai->user->jurusan);
+        
         $templateProcessor->setValue('nama_mk', $perbaikan_nilai->nama_mk);
         $templateProcessor->setValue('kode_mk', $perbaikan_nilai->kode_mk);
         $templateProcessor->setValue('semester', $perbaikan_nilai->semester);

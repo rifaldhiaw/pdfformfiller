@@ -32,10 +32,13 @@ class ad_ujian_skripsi extends Controller
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(
             storage_path('app\public\form\ujian_skripsi.docx')
         );
-        $pathSaveFile = storage_path('app\public\results\ujian_skripsi-'.$ujian_skripsi->npm.'.docx');
+        $pathSaveFile = storage_path('app\public\results\ujian_skripsi-'.$ujian_skripsi->user->npm.'.docx');
 
-        $templateProcessor->setValue('nama', $ujian_skripsi->nama);
-        $templateProcessor->setValue('npm', $ujian_skripsi->npm);
+        $templateProcessor->setValue('nama', $ujian_skripsi->user->nama);
+        $templateProcessor->setValue('npm', $ujian_skripsi->user->npm);
+        $templateProcessor->setValue('dosen_pa', $ujian_skripsi->user->dosen->nama);
+        $templateProcessor->setValue('nip_pa', $ujian_skripsi->user->nip);
+
         $templateProcessor->setValue('judul', $ujian_skripsi->judul);
         $templateProcessor->setValue('ketua_penguji', $ujian_skripsi->ketua_penguji);
         $templateProcessor->setValue('nip_ketua_penguji', $ujian_skripsi->nip_ketua_penguji);
@@ -44,8 +47,6 @@ class ad_ujian_skripsi extends Controller
         $templateProcessor->setValue('nip_dosen2', $ujian_skripsi->nip_dosen2);
         $templateProcessor->setValue('penguji', $ujian_skripsi->penguji);
         $templateProcessor->setValue('nip_penguji', $ujian_skripsi->nip_penguji);
-        $templateProcessor->setValue('dosen_pa', $ujian_skripsi->dosen_pa);
-        $templateProcessor->setValue('nip_pa', $ujian_skripsi->nip_pa);
         $templateProcessor->setValue('tanggal_berkas ', $ujian_skripsi->tanggal_berkas );
         $templateProcessor->setValue('hari', $ujian_skripsi->hari);
         $templateProcessor->setValue('tanggal', $ujian_skripsi->tanggal);

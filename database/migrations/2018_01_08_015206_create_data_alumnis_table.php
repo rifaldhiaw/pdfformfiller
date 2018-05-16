@@ -15,9 +15,7 @@ class CreateDataAlumnisTable extends Migration
     {
         Schema::create('data_alumnis', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
-            $table->string('prodi');
+            $table->integer('user_id'); //nama, npm, prodi, 
             $table->string('email');
             $table->string('nohp');
             $table->string('alamat');

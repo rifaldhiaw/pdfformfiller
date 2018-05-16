@@ -6,26 +6,9 @@
 @section('content')
 <form action="{{ url('daftar-hadir-skripsi') }}" method="post">
     {{ csrf_field() }}
-    <div class="form-horizontal content-center ">
+    <div class="form-horizontal content-center container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="header">Data Diri</div>
-                    <div class="content">
-                        <div class="form-group  ">
-                            <label  for="nama">Nama:</label>
-                            <div >
-                                <input type="text" class="form-control" name="nama">
-                            </div>
-                        </div>
-                        <div class="form-group  ">
-                            <label  for="npm">NPM:</label>
-                            <div >
-                                <input type="text" class="form-control" name="npm">    
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-6 ">
                 <div class="card">
                     <div class="header">Data Seminar </div>
                     <div class="content">
@@ -66,8 +49,22 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="card">
+                    <div class="header">Print / Download</div>
+                    <div class="content">
+                        <div class="form-group">
+                            <div class=" text-center">
+                                <button type="submit" class="btn btn-primary btn-lg my-0">
+                                    Print / Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="header">Data Skripsi / TA </div>
                     <div class="content">
@@ -119,14 +116,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="space"></div>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="form-group  ">
-                <button type="submit" class="btn btn-info">Print</button>
-            </div>
+
         </div>
     </div>
 </form> 

@@ -16,188 +16,44 @@
                         <th>Nama File</th>
                         <th>Download </th>
                         <th>Update </th>
+                        <th>Update Terkahir</th>
+                    </thead>
                     </thead>
                     <tbody>
+                        @foreach ($datas as $data)
                         <tr>
-                            <td>1.</td>
-                            <td>Daftar Hadir Seminar</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $data->nama }}</td>
                             <td>
-                                <form action="{{ $daftar_hadir }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
+                                <form action="{{ url('/'.$data->dl_link) }}" method="post">
+                                    <button class="btn btn-info remove btn-xs">
                                         <i class="fa fa-download" aria-hidden="true"></i> 
+                                        download
                                     </button>
                                 </form>
                             </td>
                             <td>
-                                <form action="{{ $daftar_hadir }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
+                                <form action="{{ url('admin/form/update') }}" method="post" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    
+                                    <input type="hidden" name="id" value="{{ $data->id }}">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <input type="file" name="file" required="">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-warning remove btn-xs" type="submit">
+                                                <i class="fa fa-upload" aria-hidden="true"></i> 
+                                                Upload
+                                            </button>
+                                        </div>
+                                    </div>
                                 </form>
                             </td>
+                            <td>{{ $data->updated_at }}</td>
                    		</tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Pendaftaran KP/PKL</td>
-                            <td>
-                                <form action="{{ $pendaftaran_pkl }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
-                                        <i class="fa fa-download" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{ $pendaftaran_pkl }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3.</td>
-                            <td>Pengajuan Tema</td>
-                            <td>
-                                <form action="{{ $pengajuan_tema }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
-                                        <i class="fa fa-download" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{ $pengajuan_tema }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4.</td>
-                            <td>Pengambilan Data</td>
-                            <td>
-                                <form action="{{ $pengambilan_data }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
-                                        <i class="fa fa-download" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{ $pengambilan_data }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5.</td>
-                            <td>Pengisian KRS</td>
-                            <td>
-                                <form action="{{ $pengisian_krs }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
-                                        <i class="fa fa-download" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{ $pengisian_krs }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6.</td>
-                            <td>Perbaikan Nilai</td>
-                            <td>
-                                <form action="{{ $perbaikan_nilai }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
-                                        <i class="fa fa-download" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{ $perbaikan_nilai }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7.</td>
-                            <td>Seminar KP/PKL</td>
-                            <td>
-                                <form action="{{ $seminar_kp }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
-                                        <i class="fa fa-download" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{ $seminar_kp }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8.</td>
-                            <td>Seminar TA</td>
-                            <td>
-                                <form action="{{ $seminar_ta }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
-                                        <i class="fa fa-download" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{ $seminar_ta }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>9.</td>
-                            <td>Seminar Usul/Hasil</td>
-                            <td>
-                                <form action="{{ $seminar_usulhasil }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
-                                        <i class="fa fa-download" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{ $seminar_usulhasil }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>10.</td>
-                            <td>Ujian SKripsi</td>
-                            <td>
-                                <form action="{{ $ujian_skripsi }}" method="post">
-                                    <button class="btn btn-simple btn-info btn-icon remove btn-xs">
-                                        <i class="fa fa-download" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{ $ujian_skripsi }}" method="post">
-                                    <button class="btn btn-simple btn-warning btn-icon remove btn-xs">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                        @endforeach
+
                		</tbody>
            		</table>
 

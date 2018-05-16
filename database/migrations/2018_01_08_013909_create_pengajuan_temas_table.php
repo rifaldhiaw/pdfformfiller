@@ -15,16 +15,12 @@ class CreatePengajuanTemasTable extends Migration
     {
         Schema::create('pengajuan_temas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
-            $table->string('prodi');
+            $table->integer('user_id'); //nama, npm, dosen_pa, nip_pa, prodi
             $table->string('karya_tulis');
             $table->string('judul_1');
-            $table->string('judul_2');
+            $table->string('judul_2')->nullable();
             $table->string('pembimbing');
             $table->string('nip_pembimbing');
-            $table->string('dosen_pa');
-            $table->string('nip_pa');
             $table->timestamps();
         });
     }

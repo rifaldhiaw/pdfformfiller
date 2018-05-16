@@ -32,11 +32,12 @@ class ad_data_alumni extends Controller
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(
             storage_path('app\public\form\data_alumni.docx')
         );
-        $pathSaveFile = storage_path('app\public\results\data_alumni-'.$data_alumni->npm.'.docx');
+        $pathSaveFile = storage_path('app\public\results\data_alumni-'.$data_alumni->user->npm.'.docx');
         
-        $templateProcessor->setValue('nama', $data_alumni->nama);
-        $templateProcessor->setValue('npm', $data_alumni->npm);
-        $templateProcessor->setValue('prodi', $data_alumni->prodi);
+        $templateProcessor->setValue('nama', $data_alumni->user->nama);
+        $templateProcessor->setValue('npm', $data_alumni->user->npm);
+        $templateProcessor->setValue('prodi', $data_alumni->user->prodi);
+        
         $templateProcessor->setValue('email', $data_alumni->email);
         $templateProcessor->setValue('nohp', $data_alumni->nohp);
         $templateProcessor->setValue('alamat', $data_alumni->alamat);

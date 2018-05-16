@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use Illuminate\Support\Facades\Auth;
 use App\daftar_hadir_kp;
 use Carbon\Carbon;
 use Debugbar;
 
 class daftar_hadir_kp_c extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function view()
 	{
     	//ambil data dosen
@@ -26,9 +32,9 @@ class daftar_hadir_kp_c extends Controller
     	$request 		= request();
 
     	//ambil data dari input user
-    	$nama 			= $request->input('nama');
-    	$npm 			= $request->input('npm');
-        $prodi            = $request->input('prodi');
+    	$nama 			= Auth::User()->nama;
+    	$npm 			= Auth::User()->npm;
+        $prodi            = Auth::User()->prodi;
         $judul            = $request->input('judul');
         $tempat_kp            = $request->input('tempat_kp');
         $alamat            = $request->input('alamat');
@@ -41,9 +47,7 @@ class daftar_hadir_kp_c extends Controller
 
     	//insert data ke database
     	$daftar_kp = new daftar_hadir_kp;
-    	$daftar_kp->nama = $nama;
-    	$daftar_kp->npm = $npm; 
-        $daftar_kp->prodi = $prodi; 
+    	$daftar_kp->user_id = Auth::id(); 
         $daftar_kp->judul = $judul; 
         $daftar_kp->tempat_kp = $tempat_kp; 
         $daftar_kp->alamat = $alamat; 

@@ -13,13 +13,13 @@
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="{{ URL::asset('/img/blurred-image-1.jpg') }}">
                 <ul class="navbar-nav">
-					@if (!Auth::guest())
+					<!-- 
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin')}}">
                             <p><strong>ADMIN PAGE</strong></p>
                         </a>
                     </li>
-                    @endif
+                     -->
                     <li class="nav-item">
                         <a class="nav-link" href="http://ilkom.unila.ac.id">
                             <p>Ilkom</p>
@@ -35,6 +35,22 @@
                             <p>Unila</p>
                         </a>
                     </li>
+                    @if (!Auth::guest())
+                        <li class="nav-item">
+                            <a class="nav-link text-warning navbar-brand" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            
+                            <button class="btn btn-danger btn-sm">
+                                <strong>logout</strong>
+                            </button>
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

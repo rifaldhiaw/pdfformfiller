@@ -15,8 +15,7 @@ class CreateSeminarUsulhasilsTable extends Migration
     {
         Schema::create('seminar_usulhasils', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
+            $table->integer('user_id'); //nama, npm, dosen_pa, nip_pa
             $table->string('judul');
             $table->string('jenis_seminar');
             $table->string('pembimbing');
@@ -24,8 +23,6 @@ class CreateSeminarUsulhasilsTable extends Migration
             $table->string('status_dosen2');
             $table->string('nama_dosen2');
             $table->string('pembahas');
-            $table->string('dosen_pa');
-            $table->string('nip_pa');
             $table->string('tanggal_berkas');
             $table->string('hari');
             $table->string('tanggal');

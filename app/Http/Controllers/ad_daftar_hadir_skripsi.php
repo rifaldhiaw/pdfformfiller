@@ -32,10 +32,10 @@ class ad_daftar_hadir_skripsi extends Controller
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(
             storage_path('app\public\form\daftar_hadir.docx')
         );
-        $pathSaveFile = storage_path('app\public\results\daftar_hadir-'.$daftar_hadir_skripsi->npm.'.docx');
+        $pathSaveFile = storage_path('app\public\results\daftar_hadir-'.$daftar_hadir_skripsi->user->npm.'.docx');
 
-        $templateProcessor->setValue('nama', $daftar_hadir_skripsi->nama);
-        $templateProcessor->setValue('npm', $daftar_hadir_skripsi->npm);
+        $templateProcessor->setValue('nama', $daftar_hadir_skripsi->user->nama);
+        $templateProcessor->setValue('npm', $daftar_hadir_skripsi->user->npm);
         $templateProcessor->setValue('jenis_seminar', $daftar_hadir_skripsi->jenis_seminar);
         $templateProcessor->setValue('hari', $daftar_hadir_skripsi->hari);
         $templateProcessor->setValue('tanggal', $daftar_hadir_skripsi->tanggal);

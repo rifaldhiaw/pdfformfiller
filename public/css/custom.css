@@ -37,6 +37,12 @@
 	padding-top: 20px;
 }
 
+.profil-ico {
+    font-size: 80px;
+    text-align: center;
+    padding-top: 20px;
+}
+
 .menu-lists {
     padding-left: 5px;
 }
@@ -653,4 +659,42 @@ fieldset[disabled] .form-control {
 }
 .print-button{
 	margin:0 auto;
+}
+
+.big-print{
+    font-size:  100px;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+.footer-reg {
+    padding: 15px 20px;
+    background-color: #f1f1f1;
+    color: black;
+    border-bottom: 5px solid #2ca8ff;
+}
+.footer-profil {
+    padding: 20px 20px;
+    background-color: #f1f1f1;
+    color: black;
+    border-bottom: 5px solid #2ca8ff;
+    font-size: 11px;
+}
+[data-background-color] .form-control {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: black;
+}
+[data-background-color] .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: gray;
+    opacity: 1; /* Firefox */
+}
+[data-background-color] .form-control:focus::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+.bg-download{
+    background-color: #F1F1F1;
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Daftar_kp;
+use Illuminate\Support\Facades\Auth;
 use App\Dosen;
 use Carbon\Carbon;
 use Debugbar;
@@ -24,15 +25,14 @@ class UserPendaftaranpkl extends Controller
     public function print()
     {
     	$request 		= request();
-    	$id = $request->input('dosen_pa_id');
-    	$dosen_pa = Dosen::find($id)->toArray();
 
     	//ambil data dari input user
-    	$nama 			= $request->input('nama');
-    	$npm 			= $request->input('npm');
-    	$program_studi 	= $request->input('program_studi');
-        $nip_pa         = $dosen_pa["nip"];
-        $dosen_pa       = $dosen_pa["nama"];
+    	$nama 			= Auth::User()->nama;
+    	$npm 			= Auth::User()->npm;
+    	$program_studi 	= Auth::User()->prodi;
+        $nip_pa         = Auth::User()->dosen->nip;
+        $dosen_pa       = Auth::User()->dosen->nama;
+
         $tanggal_mulai_pkl       = $request->input('tanggal_mulai_pkl');
         $tanggal_selesai_pkl      = $request->input('tanggal_selesai_pkl');
     	$semester 		= $request->input('semester');
@@ -43,15 +43,11 @@ class UserPendaftaranpkl extends Controller
 
     	//insert data ke database
     	$daftar_kp = new Daftar_kp;
-    	$daftar_kp->nama = $nama;
-    	$daftar_kp->npm = $npm;
+    	$daftar_kp->user_id = Auth::id();
     	$daftar_kp->dibuat = Carbon::now();
-    	$daftar_kp->program_studi = $program_studi;
     	$daftar_kp->semester = $semester;
     	$daftar_kp->tahun_ajar = $tahun_ajar;
     	$daftar_kp->tanggal = Carbon::now();
-    	$daftar_kp->dosen_pa = $dosen_pa;
-    	$daftar_kp->nip_pa = $nip_pa;
     	$daftar_kp->tempat_pkl = $tempat_pkl;
     	$daftar_kp->alamat_pkl = $alamat_pkl;
     	$daftar_kp->save();

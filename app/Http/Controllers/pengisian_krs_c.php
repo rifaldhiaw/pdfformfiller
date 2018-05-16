@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dosen;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Debugbar;
 
-class pengisian_krs extends Controller
+class pengisian_krs_c extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function view()
 	{
     	//ambil data dosen
@@ -25,8 +31,9 @@ class pengisian_krs extends Controller
     	$request 		= request();
 
     	//ambil data dari input user
-    	$nama 			= $request->input('nama');
-    	$npm 			= $request->input('npm');
+    	$nama 			= Auth::User()->nama;
+    	$npm 			= Auth::User()->npm;
+        
     	$jenis_seminar 	= $request->input('jenis_seminar');
         $hari        = $request->input('hari');
         $tanggal        = $request->input('tanggal');

@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
 Route::get('/test', function () {
     return view('test');
@@ -21,11 +21,14 @@ Route::get('/test', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/update_data_view', 'update_data_diri_c@view');
+Route::post('/update_data_diri', 'update_data_diri_c@update');
 
 //link from print button (user)
-Route::get('/pendaftaran-pkl', 'UserPendaftaranpkl@view')->name('pendaftaran-pkl');
-Route::post('/pendaftaran-pkl', 'UserPendaftaranpkl@print');
+Route::get('/pendaftaran_pkl', 'UserPendaftaranpkl@view')->name('pendaftaran-pkl');
+Route::post('/pendaftaran_pkl', 'UserPendaftaranpkl@print');
 
 //link from print button (user)
 Route::get('/daftar-hadir-skripsi', 'daftar_hadir_skripsi_c@view');
@@ -74,6 +77,12 @@ Route::post('/alih_program_luar', 'alih_program_luar_c@print');
 //link from print button (user)
 Route::get('/data_alumni', 'data_alumni_c@view');
 Route::post('/data_alumni', 'data_alumni_c@print');
+
+
+//link from admin
+Route::prefix('user')->group(function () {
+	Route::get('', 'UserController@index');
+});
 
 //link from admin
 Route::prefix('admin')->group(function () {
@@ -132,9 +141,12 @@ Route::prefix('admin')->group(function () {
 	Route::post('/dosen/update', 'AdminDosen@update')->name('admin_dosen_update');
 	Route::post('/dosen/delete', 'AdminDosen@delete')->name('admin_dosen_delete');
 
+	Route::get('/user', 'AdminUser@view');
+	Route::post('/user/tambah', 'AdminUser@tambah');
+	Route::post('/user/edit', 'AdminUser@edit');
+	Route::post('/user/update', 'AdminUser@update');
+	Route::post('/user/delete', 'AdminUser@delete');
+
 	Route::get('/form', 'FormTemplate@view')->name('form_template');
-	Route::post('/dosen/tambah', 'AdminDosen@tambah')->name('admin_dosen_tambah');
-	Route::post('/dosen/edit', 'AdminDosen@edit')->name('admin_dosen_edit');
-	Route::post('/dosen/update', 'AdminDosen@update')->name('admin_dosen_update');
-	Route::post('/dosen/delete', 'AdminDosen@delete')->name('admin_dosen_delete');
+	Route::post('/form/update', 'FormTemplate@update');
 });

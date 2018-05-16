@@ -32,10 +32,11 @@ class ad_pengambilan_data extends Controller
         $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(
             storage_path('app\public\form\pengambilan_data.docx')
         );
-        $pathSaveFile = storage_path('app\public\results\pengambilan_data-'.$pengambilan_data->npm.'.docx');
+        $pathSaveFile = storage_path('app\public\results\pengambilan_data-'.$pengambilan_data->user->npm.'.docx');
 
-        $templateProcessor->setValue('nama', $pengambilan_data->nama);
-        $templateProcessor->setValue('npm', $pengambilan_data->npm);
+        $templateProcessor->setValue('nama', $pengambilan_data->user->nama);
+        $templateProcessor->setValue('npm', $pengambilan_data->user->npm);
+        
         $templateProcessor->setValue('judul', $pengambilan_data->judul);
         $templateProcessor->setValue('pembimbing', $pengambilan_data->pembimbing);
         $templateProcessor->setValue('nama_data', $pengambilan_data->nama_data);

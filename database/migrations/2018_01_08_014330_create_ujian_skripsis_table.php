@@ -15,8 +15,7 @@ class CreateUjianSkripsisTable extends Migration
     {
         Schema::create('ujian_skripsis', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
+            $table->integer('user_id'); //nama, npm, dosen_pa, nip_pa
             $table->string('judul');
             $table->string('ketua_penguji');
             $table->string('nip_ketua_penguji');
@@ -25,8 +24,6 @@ class CreateUjianSkripsisTable extends Migration
             $table->string('nip_dosen2');
             $table->string('penguji');
             $table->string('nip_penguji');
-            $table->string('dosen_pa');
-            $table->string('nip_pa');
             $table->string('tanggal_berkas');
             $table->string('hari');
             $table->string('tanggal');

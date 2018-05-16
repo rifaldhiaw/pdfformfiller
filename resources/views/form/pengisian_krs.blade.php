@@ -12,37 +12,8 @@
             <!-- CARD  -->
             <div class="col-md-6">
                 <div class="card">
-                    <div class="header">Data Diri</div>
+                    <div class="header">Data Utama</div>
                     <div class="content">
-                        <div class="form-group  ">
-                            <label  for="nama">Nama:</label>
-                            <div >
-                                <input type="text" class="form-control" name="nama">
-                            </div>
-                        </div>
-                        <div class="form-group  ">
-                            <label  for="npm">NPM:</label>
-                            <div >
-                                <input type="text" class="form-control" name="npm">    
-                            </div>
-                        </div>
-                        <div class="form-group  ">
-                            <label   for="program_studi">Program Studi:</label>
-                            <div >
-                                <div class="radio">
-                                    <input type="radio" name="program_studi" id="radio1" value="S1 Ilmu Komputer">
-                                    <label for="radio1">
-                                        S1 Ilmu Komputer
-                                    </label>    
-                                </div>
-                                <div class="radio">
-                                    <input type="radio" name="program_studi" id="radio2" value="D3 Manajemen Informatika" checked="">
-                                    <label for="radio2">
-                                        D3 Manajemen Informatika
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-group  ">
                             <label   for="semester">Semester:</label>
                             <div >
@@ -82,14 +53,6 @@
                             <div >
                                 <input type="text" class="form-control" name="npm">    
                             </div>
-                        </div>
-                        <div class="form-group  ">
-                            <label for="dosen_pa_id">Dosen PA:</label>
-                            <select class="form-control" name="dosen_pa_id">
-                                @foreach ($dosens as $dosen)
-                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
-                                @endforeach
-                            </select>
                         </div>
                     </div>
                 </div>
@@ -139,6 +102,59 @@
                         <div class="form-group  ">
                             <label for="dosen_1">Dosen PJ:</label>
                             <select class="form-control" name="dosen_1">
+                                @foreach ($dosens as $dosen)
+                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            <!-- CARD  -->
+                <div class="card">
+                    <!-- HEADER -->
+                    <div class="header">Mata Kuliah 4:</div>
+                    <!-- CONTENT -->
+                    <div class="content">
+
+                        <div class="form-group  ">
+                            <label  for="kode_4">Kode :</label>
+                            <div >
+                                <input type="text" class="form-control" name="kode_4">
+                            </div>
+                        </div>
+
+                        <div class="form-group  ">
+                            <label  for="makul_4">Mata Kuliah :</label>
+                            <div >
+                                <input type="text" class="form-control" name="makul_4">
+                            </div>
+                        </div>
+
+                        <div class="form-group  ">
+                            <label  for="sks_4">SKS :</label>
+                            <div >
+                                <input type="text" class="form-control" name="sks_4">
+                            </div>
+                        </div>
+
+                        <div class="form-group  ">
+                            <label  for="ambil_4">Pengambilan Ke- :</label>
+                            <div >
+                                <input type="text" class="form-control" name="ambil_4">
+                            </div>
+                        </div>
+
+                        <div class="form-group  ">
+                            <label  for="kelas_4">Kelas :</label>
+                            <div >
+                                <input type="text" class="form-control" name="kelas_4">
+                            </div>
+                        </div>
+
+                        <div class="form-group  ">
+                            <label for="dosen_4">Dosen PJ:</label>
+                            <select class="form-control" name="dosen_4">
                                 @foreach ($dosens as $dosen)
                                 <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
                                 @endforeach
@@ -257,71 +273,23 @@
 
                     </div>
                 </div>
-
-            <!-- CARD  -->
+                
                 <div class="card">
-                    <!-- HEADER -->
-                    <div class="header">Mata Kuliah 4:</div>
-                    <!-- CONTENT -->
+                    <div class="header">Print / Download</div>
                     <div class="content">
-
-                        <div class="form-group  ">
-                            <label  for="kode_4">Kode :</label>
-                            <div >
-                                <input type="text" class="form-control" name="kode_4">
+                        <div class="form-group">
+                            <div class=" text-center">
+                                <button type="submit" class="btn btn-primary btn-lg my-0">
+                                    Print / Download
+                                </button>
                             </div>
                         </div>
-
-                        <div class="form-group  ">
-                            <label  for="makul_4">Mata Kuliah :</label>
-                            <div >
-                                <input type="text" class="form-control" name="makul_4">
-                            </div>
-                        </div>
-
-                        <div class="form-group  ">
-                            <label  for="sks_4">SKS :</label>
-                            <div >
-                                <input type="text" class="form-control" name="sks_4">
-                            </div>
-                        </div>
-
-                        <div class="form-group  ">
-                            <label  for="ambil_4">Pengambilan Ke- :</label>
-                            <div >
-                                <input type="text" class="form-control" name="ambil_4">
-                            </div>
-                        </div>
-
-                        <div class="form-group  ">
-                            <label  for="kelas_4">Kelas :</label>
-                            <div >
-                                <input type="text" class="form-control" name="kelas_4">
-                            </div>
-                        </div>
-
-                        <div class="form-group  ">
-                            <label for="dosen_4">Dosen PJ:</label>
-                            <select class="form-control" name="dosen_4">
-                                @foreach ($dosens as $dosen)
-                                <option value="{{$dosen->id}}">{{$dosen->nama}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
                     </div>
                 </div>
+
             </div>
 
         </div> 
-    </div>
-    <div class="space"></div>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="form-group  ">
-                <button type="submit" class="btn btn-info">Print</button>
-            </div>
-        </div>
     </div>
 </form> 
 @endsection

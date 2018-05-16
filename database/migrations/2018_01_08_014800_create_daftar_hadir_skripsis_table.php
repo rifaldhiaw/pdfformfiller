@@ -15,8 +15,7 @@ class CreateDaftarHadirSkripsisTable extends Migration
     {
         Schema::create('daftar_hadir_skripsis', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('npm');
+            $table->integer('user_id'); //nama, npm
             $table->string('judul');
             $table->string('jenis_seminar');
             $table->string('pembimbing');

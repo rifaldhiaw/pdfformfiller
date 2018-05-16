@@ -17,9 +17,9 @@ class CreateAlihProgramLuarsTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('npm');
-            $table->string('prodi');
             $table->string('universitas');
-            $table->string('akreditas');
+            $table->string('prodi');
+            $table->string('akreditasi');
             $table->string('sks');
             $table->string('ipk');
             $table->string('smt');

@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\perbaikan_nilai;
+use Illuminate\Support\Facades\Auth;
 use App\Dosen;
 use Carbon\Carbon;
 use Debugbar;
 
 class perbaikan_nilai_c extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function view()
 	{
     	//ambil data dosen
@@ -27,9 +33,11 @@ class perbaikan_nilai_c extends Controller
         $dosen_pj_ar = Dosen::find( $request->input('dosen_pj') )->toArray();
 
     	//ambil data dari input user
-    	$nama 			= $request->input('nama');
-    	$npm 			= $request->input('npm');
-    	$prodi 	        = $request->input('prodi');
+    	$nama 			= Auth::User()->nama;
+    	$npm 			= Auth::User()->npm;
+    	$prodi 	        = Auth::User()->prodi;
+        $jurusan          = Auth::User()->jurusan;
+
         $nama_mk        = $request->input('nama_mk');
         $kode_mk        = $request->input('kode_mk');
         $semester       = $request->input('semester');
@@ -38,9 +46,7 @@ class perbaikan_nilai_c extends Controller
 
     	//insert data ke database
     	$perbaikan_nilai = new perbaikan_nilai;
-    	$perbaikan_nilai->nama = $nama;
-    	$perbaikan_nilai->npm = $npm;
-    	$perbaikan_nilai->prodi = $prodi;
+    	$perbaikan_nilai->user_id = Auth::id();
     	$perbaikan_nilai->nama_mk = $nama_mk;
     	$perbaikan_nilai->kode_mk = $kode_mk;
     	$perbaikan_nilai->semester = $semester;
@@ -53,10 +59,10 @@ class perbaikan_nilai_c extends Controller
         );
         $pathSaveFile = storage_path('app\public\form\perbaikan_nilai-'.$npm.'.docx');
 
-        $templateProcessor->setValue('nama', $perbaikan_nilai->nama);
-        $templateProcessor->setValue('npm', $perbaikan_nilai->npm);
-        $templateProcessor->setValue('prodi', $perbaikan_nilai->prodi);
-        $templateProcessor->setValue('jurusan', 'Ilmu Komputer');
+        $templateProcessor->setValue('nama', $nama);
+        $templateProcessor->setValue('npm', $npm);
+        $templateProcessor->setValue('prodi', $prodi);
+        $templateProcessor->setValue('jurusan', $jurusan);
         $templateProcessor->setValue('nama_mk', $perbaikan_nilai->nama_mk);
         $templateProcessor->setValue('kode_mk', $perbaikan_nilai->kode_mk);
         $templateProcessor->setValue('semester', $perbaikan_nilai->semester);
